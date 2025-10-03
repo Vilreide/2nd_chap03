@@ -10,65 +10,67 @@
 <link href="https://fonts.googleapis.com/css2?family=Computer+Modern+Serif&amp;display=swap" rel="stylesheet"><!-- Police computer modern (latex) -->
 <!-- STYLE MANIM -->
 <style>
-    body, .reveal {
-      font-family: 'Computer Modern Serif', serif;
-      background-color: black;
-      color: white;
+  @media print {
+    /* Force un fond noir et du texte blanc pour l'impression */
+    body {
+        background-color: #000 !important;  /* Fond noir */
+        color: #fff !important;              /* Texte blanc */
     }
-    .reveal h2 {font-family: 'Computer Modern Serif', serif; color: rgb(255, 37, 37); font-weight: bold; text-transform: none; font-size: 1.6em; margin-bottom: 0.6em;}
-    .reveal h3 {font-family: 'Computer Modern Serif', serif; color: rgb(22, 161, 22); font-weight: bold; text-transform: none; text-align: left; font-size: 1.3em; margin-bottom: 0.5em; } 
+    h2, h3 {
+        color: #ff0000 !important;  /* Couleur des titres */
+        display: block !important;  /* S'assurer que les titres sont affichés */
+        visibility: visible !important;  /* Assurer que les titres sont visibles */
+    }
+    /* Forcer l'impression des arrière-plans pour les divs, sections, etc. */
+    * {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
+  }
+  body, .reveal {
+    font-family: 'Computer Modern Serif', serif;
+    background-color: black;
+    color: white;
+  }
+  .reveal h2 {font-family: 'Computer Modern Serif', serif; color: rgb(255, 37, 37); -webkit-text-stroke: 3px rgb(255, 219, 219); paint-order: stroke fill; font-weight: bold; text-transform: none; font-size: 1.6em; margin-bottom: 0.6em;}
+  .reveal h3 {font-family: 'Computer Modern Serif', serif; color: rgb(22, 161, 22); -webkit-text-stroke: 2.1px rgb(214, 255, 214); paint-order: stroke fill; font-weight: bold; text-transform: none; text-align: left; font-size: 1.3em; margin-bottom: 0.5em; } 
 </style>
 
 <!-- DIVISONS -->
 <style>
-  .def, .defs, .defprop, .prop, .theo, .ex, .exs, .rem, .rems, .mnemo {
-    padding: 0.35em;
-    border-radius: 6px;
-    margin: 0.3em auto;
-    position: relative;
-    text-align: left;
-    max-width: 95%;
-    min-height: 4em;
+  .def, .defs, .defprop, .prop, .theoreme, .ex, .exs, .rem, .rems, .mnemo, .voc, .rapps {
+  padding: 0.35em; border-radius: 6px; margin: 0.3em auto; position: relative; text-align: left; color: #000; max-width: 95%; min-height: 4em;
   }
+  .def {border: 5px solid red; background-color: rgb(255, 193, 193);}
+  .defs {border: 5px solid red; background-color: rgb(255, 193, 193);}
+  .defprop {border: 5px solid red; background-color: rgb(255, 193, 193);}
+  .prop {border: 5px solid red; background-color: rgb(255, 193, 193);}
+  .theo {border: 5px solid red; background-color: rgb(255, 193, 193);}
+  .ex {border: 5px solid blue; background-color: rgb(215, 219, 255);}
+  .exs {border: 2px solid blue; background-color: rgb(215, 219, 255);}
+  .rem {border: 5px solid orange; background-color: rgb(255, 232, 188);}
+  .rems {border: 5px solid orange; background-color: rgb(255, 232, 188);}
+  .mnemo {border: 2px solid #711082;; background-color: rgba(210, 14, 204, 0.195);}
+  .voc {border: 5px solid rgb(51, 168, 51); background-color: rgb(166, 218, 166);}
+  .rapps {border: 5px solid rgb(51, 168, 51); background-color: rgb(166, 218, 166);}
 
-  /* Couleurs et bordures */
-  .def, .defs, .defprop, .prop, .theo {
-    border: 2px solid red;
-    background-color: rgba(255, 0, 0, 0.1);
-  }
-  .ex, .exs {
-    border: 2px solid blue;
-    background-color: rgba(0, 21, 255, 0.16);
-  }
-  .rem, .rems {
-    border: 2px solid orange;
-    background-color: rgba(255, 165, 0, 0.1);
-  }
-  .mnemo {
-    border: 2px solid #711082;
-    background-color: rgba(210, 14, 204, 0.2);
-  }
-
-  /* Titres automatiques */
-  .def::before, .defs::before, .defprop::before, .prop::before, 
-  .theo::before, .ex::before, .exs::before, 
-  .rem::before, .rems::before, .mnemo::before {
-    display: block;
-    text-align: left;
-    font-weight: bold;
-    margin-bottom: 0.5em;
+  
+  .def::before, .defs::before, .defprop::before, .prop::before, .theoreme::before, .ex::before, .exs::before, .rem::before, .rems::before, .mnemo::before, .voc::before, .rapps::before {
+    display: block; text-align: left; font-weight: bold; margin-bottom: 0.5em;
   }
 
   .def::before { content: "Définition :"; color: red; }
   .defs::before { content: "Définitions :"; color: red; }
   .defprop::before { content: "Définition / Propriété :"; color: red; }
-  .prop::before { content: "Propriété :"; color: red; }
-  .theo::before { content: "Théorème :"; color: red; }
-  .ex::before { content: "Exemple :"; color: rgb(77, 77, 236); }
-  .exs::before { content: "Exemples :"; color: rgb(77, 77, 236); }
-  .rem::before { content: "Remarque :"; color: orange; }
-  .rems::before { content: "Remarques :"; color: orange; }
-  .mnemo::before { content: "Mnémotechnie :"; color: #711082; }
+  .prop::before  { content: "Propriété :";  color: red; }
+  .theoreme::before  { content: "Théorème :";  color: red; }
+  .ex::before   { content: "Exemple :";   color: rgb(77, 77, 236); }
+  .exes::before   { content: "Exemples :";   color: rgb(77, 77, 236); }
+  .rem::before  { content: "Remarque :";  color: rgb(220, 144, 2); }
+  .rems::before  { content: "Remarques :";  color: rgb(220, 144, 2); }
+  .mnemo::before  { content: "Mnémotechnie :"; color: #711082; }
+  .voc::before {content: "Vocabulaire :"; color: rgb(30, 148, 30);}
+  .rapps::before {content: "Rappels :"; color: rgb(30, 148, 30);}
 </style>
 
 
@@ -217,52 +219,52 @@
 
   <div data-id="defini" class="defs fragment" style="font-size: 0.96em;">
     <div class="fragment">
-      &#8226; L'ensemble des <strong style="color:yellow;">entiers naturels</strong> noté 
-      <strong style="color:yellow;">$ \mathbb{N} $</strong>, est l'ensemble des entiers positifs ou nuls :
-      <strong style="color:yellow;">0</strong>; 
-      <strong style="color:yellow;">1</strong>; 
-      <strong style="color:yellow;">2</strong>; 
-      <strong style="color:yellow;">3</strong>; 
-      <strong style="color:yellow;">4</strong>; ...
+      &#8226; L'ensemble des <strong style="color:black;">entiers naturels</strong> noté 
+      <strong style="color:black;">$ \mathbb{N} $</strong>, est l'ensemble des entiers positifs ou nuls :
+      <strong style="color:black;">0</strong>; 
+      <strong style="color:black;">1</strong>; 
+      <strong style="color:black;">2</strong>; 
+      <strong style="color:black;">3</strong>; 
+      <strong style="color:black;">4</strong>; ...
     </div>
   
     <div class="fragment" style="margin-top: 0.4em;">
-      &#8226; L'ensemble des <strong style="color:yellow;">entiers relatifs</strong> noté 
-      <strong style="color:yellow;">$ \mathbb{Z} $</strong>, est l'ensemble des entiers positifs et négatifs :
+      &#8226; L'ensemble des <strong style="color:black;">entiers relatifs</strong> noté 
+      <strong style="color:black;">$ \mathbb{Z} $</strong>, est l'ensemble des entiers positifs et négatifs :
       ...
-      <span style="color:yellow;">$-3$</span>;
-      <span style="color:blue;"><span style="color:yellow;">$-2$</span></span>;
-      <span style="color:blue;"><span style="color:yellow;">$-1$</span></span>;
-      <span style="color:yellow;"><strong>0</strong></span>;
-      <span style="color:yellow;"><strong>1</strong></span>;
-      <span style="color:yellow;"><strong>2</strong></span>;
-      <span style="color:yellow;"><strong>3</strong></span> ...
+      <span style="color:black;">$-3$</span>;
+      <span style="color:blue;"><span style="color:black;">$-2$</span></span>;
+      <span style="color:blue;"><span style="color:black;">$-1$</span></span>;
+      <span style="color:black;"><strong>0</strong></span>;
+      <span style="color:black;"><strong>1</strong></span>;
+      <span style="color:black;"><strong>2</strong></span>;
+      <span style="color:black;"><strong>3</strong></span> ...
     </div>
   </div>
 </section>
 <section data-auto-animate>
   <div data-id="defini" class="defs" style="font-size: 0.96em;">
     <div>
-      &#8226; L'ensemble des <strong style="color:yellow;">entiers naturels</strong> noté 
-      <strong style="color:yellow;">$ \mathbb{N} $</strong>, est l'ensemble des entiers positifs ou nuls :
-      <strong style="color:yellow;">0</strong>; 
-      <strong style="color:yellow;">1</strong>; 
-      <strong style="color:yellow;">2</strong>; 
-      <strong style="color:yellow;">3</strong>; 
-      <strong style="color:yellow;">4</strong>; ...
+      &#8226; L'ensemble des <strong style="color:black;">entiers naturels</strong> noté 
+      <strong style="color:black;">$ \mathbb{N} $</strong>, est l'ensemble des entiers positifs ou nuls :
+      <strong style="color:black;">0</strong>; 
+      <strong style="color:black;">1</strong>; 
+      <strong style="color:black;">2</strong>; 
+      <strong style="color:black;">3</strong>; 
+      <strong style="color:black;">4</strong>; ...
     </div>
   
     <div style="margin-top: 0.4em;">
-      &#8226; L'ensemble des <strong style="color:yellow;">entiers relatifs</strong> noté 
-      <strong style="color:yellow;">$ \mathbb{Z} $</strong>, est l'ensemble des entiers positifs et négatifs :
+      &#8226; L'ensemble des <strong style="color:black;">entiers relatifs</strong> noté 
+      <strong style="color:black;">$ \mathbb{Z} $</strong>, est l'ensemble des entiers positifs et négatifs :
       ...
-      <span style="color:yellow;">$-3$</span>;
-      <span style="color:blue;"><span style="color:yellow;">$-2$</span></span>;
-      <span style="color:blue;"><span style="color:yellow;">$-1$</span></span>;
-      <span style="color:yellow;"><strong>0</strong></span>;
-      <span style="color:yellow;"><strong>1</strong></span>;
-      <span style="color:yellow;"><strong>2</strong></span>;
-      <span style="color:yellow;"><strong>3</strong></span> ...
+      <span style="color:black;">$-3$</span>;
+      <span style="color:blue;"><span style="color:black;">$-2$</span></span>;
+      <span style="color:blue;"><span style="color:black;">$-1$</span></span>;
+      <span style="color:black;"><strong>0</strong></span>;
+      <span style="color:black;"><strong>1</strong></span>;
+      <span style="color:black;"><strong>2</strong></span>;
+      <span style="color:black;"><strong>3</strong></span> ...
     </div>
   </div>
 
@@ -275,15 +277,15 @@
 <section>
   <div class="defs">
     <div class="fragment">
-      &#8226; On dit qu'un <u>nombre</u> <strong style="color:yellow;">appartient</strong> à un 
-      <u>ensemble</u>, noté avec le symbole « <span style="color:yellow;">$ \in $</span> ».  
-      <span style="color:rgb(198, 198, 255);">Exs : $3 \in \mathbb{N}$, $-5 \in \mathbb{Z}$.</span>
+      &#8226; On dit qu'un <u>nombre</u> <strong style="color:black;">appartient</strong> à un 
+      <u>ensemble</u>, noté avec le symbole « <span style="color:black;">$ \in $</span> ».  
+      <span style="color:blue;">Exs : $3 \in \mathbb{N}$, $-5 \in \mathbb{Z}$.</span>
     </div>
 
     <div class="fragment" style="margin-top: 0.5em;">
-      &#8226; On dit qu'un <u>ensemble</u> est <strong style="color:yellow;">inclus</strong> 
-      dans un autre <u>ensemble</u>, noté avec le symbole « <span style="color:yellow;">$ \subset $</span> ».  
-      <span style="color:rgb(198, 198, 255);">Ex : $ \mathbb{N} \subset \mathbb{Z} $.</span>
+      &#8226; On dit qu'un <u>ensemble</u> est <strong style="color:black;">inclus</strong> 
+      dans un autre <u>ensemble</u>, noté avec le symbole « <span style="color:black;">$ \subset $</span> ».  
+      <span style="color:blue;">Ex : $ \mathbb{N} \subset \mathbb{Z} $.</span>
     </div>
   </div>
 </section>
@@ -296,9 +298,9 @@
 
 <section>
   <div class="fragment defs" style="font-size: 0.97em;">
-    On note <span style="color:yellow;">$ \mathbb{N}^* $</span> l'ensemble <span style="border-bottom: 4px solid rgb(108, 231, 108); padding-bottom: 8px;">$ \mathbb{N} \setminus \{0\} $</span>.  
-    Idem pour <span style="color:yellow;">$ \mathbb{Z}^*$</span>&nbsp;$= \mathbb{Z} \setminus \{0\} $.  
-    <div style="color:rgb(108, 231, 108); margin-left: 6.9em; margin-top:0.3em;">
+    On note <span style="color:black;">$ \mathbb{N}^* $</span> l'ensemble <span style="border-bottom: 4px solid blue; padding-bottom: 8px;">$ \mathbb{N} \setminus \{0\} $</span>.  
+    Idem pour <span style="color:black;">$ \mathbb{Z}^*$</span>&nbsp;$= \mathbb{Z} \setminus \{0\} $.  
+    <div style="color:blue; margin-left: 6.9em; margin-top:0.3em;">
       se lit « $ \mathbb{N} $ privé de 0 »
     </div>
   </div>
@@ -313,11 +315,11 @@
   
   <div class="fragment def" data-fragment-index="0">
     <div class="fragment" data-fragment-index="1" style="margin-bottom: 0.3em;">
-      Un <strong style="color:yellow;">nombre décimal</strong> est un nombre qui peut s’écrire avec un nombre 
-      <span style="border-bottom: 2px solid yellow;">fini</span> de chiffres après la virgule.
+      Un <strong style="color:black;">nombre décimal</strong> est un nombre qui peut s’écrire avec un nombre 
+      <span style="border-bottom: 2px solid black;">fini</span> de chiffres après la virgule.
     </div>
     <div class="fragment" data-fragment-index="2">
-      L’ensemble des nombres décimaux est noté <span style="color:yellow;">$ \mathbb{D} $</span>.
+      L’ensemble des nombres décimaux est noté <span style="color:black;">$ \mathbb{D} $</span>.
     </div>
   </div>
 
@@ -338,13 +340,13 @@
 <section>
   <div class="def">
     <div class="fragment">
-      Un <strong style="color:yellow;">nombre rationnel</strong> est un nombre qui peut s’écrire 
+      Un <strong style="color:black;">nombre rationnel</strong> est un nombre qui peut s’écrire 
       sous forme de fraction :
       \[ \dfrac{p}{q} \quad \text{où } p \in \mathbb{Z},\; q \in \mathbb{N}^* \]
     </div>
 
     <div class="fragment">
-      L’ensemble des rationnels est noté <span style="color:yellow;">$ \mathbb{Q} $</span>.
+      L’ensemble des rationnels est noté <span style="color:black;">$ \mathbb{Q} $</span>.
     </div>
   </div>
 </section>
@@ -352,7 +354,7 @@
 <section>
   <div class="prop">
     <div class="fragment">
-      Tous les décimaux sont rationnels, i.e. <span style="color:yellow;">$ \mathbb{D}\subset\mathbb{Q} $</span>.
+      Tous les décimaux sont rationnels, i.e. <span style="color:black;">$ \mathbb{D}\subset\mathbb{Q} $</span>.
     </div>
   </div>
   <div class="ex fragment">
@@ -375,13 +377,13 @@
   <h3>3) Nombres irrationnels et réels</h3>
 
   <div class="def" style="font-size: 0.91em;">
-    Un <strong style="color:yellow;">nombre irrationnel</strong> est un nombre qui n’est pas rationnel,  
+    Un <strong style="color:black;">nombre irrationnel</strong> est un nombre qui n’est pas rationnel,  
     i.e. qui ne peut pas s’écrire sous la forme d’une fraction.
   </div>
 
   <div class="fragment rem" style="font-size: 0.91em;">
-    Les décimales d’un nombre irrationnel sont en nombre <strong style="color:yellow;">infini</strong>  
-    et se suivent <strong style="color:yellow;">sans logique</strong>.
+    Les décimales d’un nombre irrationnel sont en nombre <strong style="color:black;">infini</strong>  
+    et se suivent <strong style="color:black;">sans logique</strong>.
   </div>
 </section>
 
@@ -390,7 +392,7 @@
     <div class="fragment" style="margin-bottom: 0.5em; font-size: 0.91em;">
       <span style="color:red;">✗</span>  
       $ \dfrac{1}{3} \approx 0{,}333$... et $ \dfrac{25}{33} \approx 0{,}757575$...  
-      <strong style="color:yellow;">ne sont pas</strong> irrationnels.
+      <strong style="color:black;">ne sont pas</strong> irrationnels.
     </div>
     <div class="fragment" style="font-size: 0.91em;">
       <span style="color:ForestGreen;">✓</span>  
@@ -402,7 +404,7 @@
     <div style="margin-top: 1em; border: 1px solid red; padding: 0.7em; max-width: 80%; margin-left: auto; margin-right: auto;">
       <div style="text-align:center;">
         <em><u>Culture mathématique</u></em><br>
-        On soupçonne $ \pi $ d’être un nombre <strong style="color:yellow;">univers</strong> !
+        On soupçonne $ \pi $ d’être un nombre <strong style="color:black;">univers</strong> !
       </div>
     </div>
   </div>
@@ -410,8 +412,8 @@
 
 <section data-auto-animate>
   <div class="def">
-    Un <strong style="color:yellow;">nombre réel</strong> est un nombre rationnel ou irrationnel.  
-    L’ensemble des réels est noté <strong style="color:yellow;">$ \mathbb{R} $</strong>.
+    Un <strong style="color:black;">nombre réel</strong> est un nombre rationnel ou irrationnel.  
+    L’ensemble des réels est noté <strong style="color:black;">$ \mathbb{R} $</strong>.
   </div>
 
   <div class="prop fragment">
@@ -444,13 +446,13 @@
   <div class="rems">
     <div class="fragment">
       • Un nombre réel est représenté par un unique point sur la  
-      <strong style="color:yellow;">droite numérique</strong> :
+      <strong style="color:black;">droite numérique</strong> :
       <img src="media/droite_reelle.jpg" class="fragment" style="margin-bottom: -0.8em; margin-top: -0.05em;">
     </div>
 
     <div class="fragment" style="margin-top: 1em;">
-      • L’ensemble des <span style="color:yellow;">irrationnels</span> peut se noter  
-      <span style="color:yellow; border: 3px solid yellow; padding: 8px;">
+      • L’ensemble des <span style="color:black;">irrationnels</span> peut se noter  
+      <span style="color:black; border: 3px solid black; padding: 8px;">
         $ \mathbb{R} \setminus \mathbb{Q} $
       </span>
     </div>
@@ -466,13 +468,13 @@
 <section>
   <h2>II/ Construire de nouveaux ensembles</h2>
   <h3 class="fragment">1) Liste d'éléments</h3>
-  <div class="fragment" style="text-align: left;">On peut définir un ensemble en listant ses <strong style="color:yellow;">éléments</strong> entre les accolades $\{$ et $\}$.</div>
+  <div class="fragment" style="text-align: left;">On peut définir un ensemble en listant ses <strong style="color:black;">éléments</strong> entre les accolades $\{$ et $\}$.</div>
   <div class="fragment" style="text-align: left; margin-top: 0.5em;">
     <span style="color: rgb(77, 77, 236); font-weight: bold;">Exemple :</span>
     $A = \Big\{$ 
-    <span style="color:yellow;">$-2$</span> ; 
-    <span style="color:yellow;">$0{,}1$</span> ; 
-    <span style="color:yellow;">$\pi$</span> 
+    <span style="color:black;">$-2$</span> ; 
+    <span style="color:black;">$0{,}1$</span> ; 
+    <span style="color:black;">$\pi$</span> 
     $\Big\}$ contient 3 éléments.
   </div>
 </section>
@@ -487,20 +489,20 @@
 
   <div class="rem" style="margin-top: 1em; font-size: 0.94em;">
     <div class="fragment">
-      <span style="color: yellow;">$ \leqslant $</span> se lit 
-      <strong style="border-bottom: 2px solid yellow; padding: 3px;">inférieur ou égal</strong> et
-      <span style="color: yellow;">$ \lt $</span> se lit 
-      <strong style="border-bottom: 2px solid yellow; padding: 3px;">strictement inférieur</strong>.
+      <span style="color: black;">$ \leqslant $</span> se lit 
+      <strong style="border-bottom: 2px solid black; padding: 3px;">inférieur ou égal</strong> et
+      <span style="color: black;">$ \lt $</span> se lit 
+      <strong style="border-bottom: 2px solid black; padding: 3px;">strictement inférieur</strong>.
     </div>
   </div>
 
   <div class="fragment def">
-    Un <strong style="color:yellow;">intervalle</strong> est une partie de $ \mathbb{R} $  
+    Un <strong style="color:black;">intervalle</strong> est une partie de $ \mathbb{R} $  
     « d’un seul tenant ».
     On les note à l’aide de crochets
-    <span style="color:yellow;">$\big[$</span> et <span style="color:yellow;">$\big]$</span>
+    <span style="color:black;">$\big[$</span> et <span style="color:black;">$\big]$</span>
     qui peuvent être  
-    <strong style="color:yellow;">ouverts</strong> ou <strong style="color:yellow;">fermés</strong>.
+    <strong style="color:black;">ouverts</strong> ou <strong style="color:black;">fermés</strong>.
   </div>
 </section>
 
@@ -553,7 +555,7 @@
       <tr>
         <td><span style="font-size: 3.5em; color:red;">⚠</span></td>
         <td class="fragment" data-fragment-index="0" style="padding: 0 0.3em; font-size: 1.em; text-align: center;">
-          On ne ferme <strong style="color:yellow;">jamais</strong> sur l’infini !
+          On ne ferme <strong style="color:black;">jamais</strong> sur l’infini !
         </td>
         <td>
           <img class="fragment" data-fragment-index="0" src="media/infini_ferme.jpg" style="width: 11em; vertical-align: middle; margin-right: -2em;">
@@ -572,20 +574,20 @@
   <div style="text-align: left;">Soit $A$ et $B$ deux intervalles.</div>
   <div data-id="melenchon " class="def fragment" data-fragment-index="0">
     <div class="fragment" data-fragment-index="1">
-      Leur <strong style="color:yellow;">union</strong> notée 
-      <span style="color:yellow;">$ A \cup B $</span>
+      Leur <strong style="color:black;">union</strong> notée 
+      <span style="color:black;">$ A \cup B $</span>
       est l’ensemble des réels qui appartiennent
-      <span style="border-bottom: 2px solid yellow; padding-bottom: 3px;">à $A$ ou à $B$</span>.
+      <span style="border-bottom: 2px solid black; padding-bottom: 3px;">à $A$ ou à $B$</span>.
     </div>
   </div>
 </section>
 <section data-auto-animate>
   <div data-id="melenchon " class="def">
     <div>
-      Leur <strong style="color:yellow;">union</strong> notée 
-      <span style="color:yellow;">$ A \cup B $</span>
+      Leur <strong style="color:black;">union</strong> notée 
+      <span style="color:black;">$ A \cup B $</span>
       est l’ensemble des réels qui appartiennent
-      <span style="border-bottom: 2px solid yellow; padding-bottom: 3px;">à $A$ ou à $B$</span>.
+      <span style="border-bottom: 2px solid black; padding-bottom: 3px;">à $A$ ou à $B$</span>.
     </div>
   </div>
   <img src="media/union.jpg">
@@ -595,10 +597,10 @@
 <section>
   <div class="def" data-fragment-index="0">
     <div class="fragment" data-fragment-index="1" style="margin-top: 0.4em;"> 
-      Leur <strong style="color:yellow;">intersection</strong> notée 
-      <span style="color:yellow;">$ A \cap B $</span>
+      Leur <strong style="color:black;">intersection</strong> notée 
+      <span style="color:black;">$ A \cap B $</span>
       est l’ensemble des réels qui appartiennent
-      <span style="border-bottom: 2px solid yellow; padding-bottom: 3px;">à la fois</span> à $A$ et à $B$.
+      <span style="border-bottom: 2px solid black; padding-bottom: 3px;">à la fois</span> à $A$ et à $B$.
     </div> 
   </div>
 
@@ -609,7 +611,7 @@
   <div class="ex">
     <div>
       <span style="color:rgb(153, 167, 255);">$A = \big[1;4\big]$</span> et
-      <span style="color:yellow;">$B = \big[3;7\big]$</span>
+      <span style="color:black;">$B = \big[3;7\big]$</span>
     </div>
     <div style="text-align: center;">
       <img src="media/intervallesAB.jpg" width="85%">
@@ -624,7 +626,7 @@
   <div class="ex">
     <div>
       <span style="color:rgb(153, 167, 255);">$A = \big[1;4\big]$</span> et
-      <span style="color:yellow;">$B = \big[3;7\big]$</span>
+      <span style="color:black;">$B = \big[3;7\big]$</span>
     </div>
     <div style="text-align: center;">
       <img src="media/intervallesAB.jpg" width="85%">
@@ -642,15 +644,15 @@
 <section data-auto-animate>
   <h3>4) L'ensemble vide</h3>
   <div data-id="vide" class="fragment def">
-    L’<strong style="color:yellow;">ensemble vide</strong> est l’ensemble qui ne contient aucun élément.  
-    On le note <span style="color:yellow;">$ \varnothing $</span>.
+    L’<strong style="color:black;">ensemble vide</strong> est l’ensemble qui ne contient aucun élément.  
+    On le note <span style="color:black;">$ \varnothing $</span>.
   </div>
 </section>
 <section data-auto-animate>
   <h3>4) L'ensemble vide</h3>
   <div data-id="vide" class="def">
-    L’<strong style="color:yellow;">ensemble vide</strong> est l’ensemble qui ne contient aucun élément.  
-    On le note <span style="color:yellow;">$ \varnothing $</span>.
+    L’<strong style="color:black;">ensemble vide</strong> est l’ensemble qui ne contient aucun élément.  
+    On le note <span style="color:black;">$ \varnothing $</span>.
   </div>
   <div data-id="ex_vide" class="ex">
     $A= \big[1;3\big]$ et $B = \big[8;10\big]$. Dans ce cas $A \cap B = \varnothing$
@@ -658,8 +660,8 @@
 </section>
 <section data-auto-animate>
   <div data-id="vide" class="def">
-    L’<strong style="color:yellow;">ensemble vide</strong> est l’ensemble qui ne contient aucun élément.  
-    On le note <span style="color:yellow;">$ \varnothing $</span>.
+    L’<strong style="color:black;">ensemble vide</strong> est l’ensemble qui ne contient aucun élément.  
+    On le note <span style="color:black;">$ \varnothing $</span>.
   </div>
   <div data-id="ex_vide" class="ex">
     $A= \big[1;3\big]$ et $B = \big[8;10\big]$. Dans ce cas $A \cap B = \varnothing$
