@@ -39,7 +39,7 @@
 <!-- DIVISONS -->
 <style>
   .def, .defs, .defprop, .prop, .theoreme, .ex, .exs, .rem, .rems, .mnemo, .voc, .rapps {
-  padding: 0.35em; border-radius: 6px; margin: 0.3em auto; position: relative; text-align: left; color: #000; max-width: 95%; min-height: 4em;
+  padding: 0.35em; border-radius: 6px; margin: 0.3em auto; position: relative; text-align: left; color: #000; max-width: 95%; min-height: 3em;
   }
   .def {border: 5px solid red; background-color: rgb(255, 193, 193);}
   .defs {border: 5px solid red; background-color: rgb(255, 193, 193);}
@@ -65,14 +65,13 @@
   .prop::before  { content: "Propriété :";  color: red; }
   .theoreme::before  { content: "Théorème :";  color: red; }
   .ex::before   { content: "Exemple :";   color: rgb(77, 77, 236); }
-  .exes::before   { content: "Exemples :";   color: rgb(77, 77, 236); }
+  .exs::before   { content: "Exemples :";   color: rgb(77, 77, 236); }
   .rem::before  { content: "Remarque :";  color: rgb(220, 144, 2); }
   .rems::before  { content: "Remarques :";  color: rgb(220, 144, 2); }
   .mnemo::before  { content: "Mnémotechnie :"; color: #711082; }
   .voc::before {content: "Vocabulaire :"; color: rgb(30, 148, 30);}
   .rapps::before {content: "Rappels :"; color: rgb(30, 148, 30);}
 </style>
-
 
 <!-- CONFIGURATION MATHJAX -->
 <script>
@@ -197,7 +196,7 @@
 
 <section>
   <div style="border: 4px solid red; border-radius: 30px;">
-    <p style="font-size: 2em; font-weight: bold; color: red">
+    <p style="font-size: 2em; font-weight: bold; color: red; -webkit-text-stroke: 3px rgb(255, 219, 219); paint-order: stroke fill;">
       Chapitre 3 : <span style="font-weight: bold;">Ensembles <br> de nombres</span>
     </p>
   </div>
@@ -221,24 +220,24 @@
     <div class="fragment">
       &#8226; L'ensemble des <strong style="color:black;">entiers naturels</strong> noté 
       <strong style="color:black;">$ \mathbb{N} $</strong>, est l'ensemble des entiers positifs ou nuls :
-      <strong style="color:black;">0</strong>; 
-      <strong style="color:black;">1</strong>; 
-      <strong style="color:black;">2</strong>; 
-      <strong style="color:black;">3</strong>; 
-      <strong style="color:black;">4</strong>; ...
+      <strong style="color:blue;">0</strong>; 
+      <strong style="color:blue;">1</strong>; 
+      <strong style="color:blue;">2</strong>; 
+      <strong style="color:blue;">3</strong>; 
+      <strong style="color:blue;">4</strong>; ...
     </div>
   
     <div class="fragment" style="margin-top: 0.4em;">
       &#8226; L'ensemble des <strong style="color:black;">entiers relatifs</strong> noté 
       <strong style="color:black;">$ \mathbb{Z} $</strong>, est l'ensemble des entiers positifs et négatifs :
       ...
-      <span style="color:black;">$-3$</span>;
-      <span style="color:blue;"><span style="color:black;">$-2$</span></span>;
-      <span style="color:blue;"><span style="color:black;">$-1$</span></span>;
-      <span style="color:black;"><strong>0</strong></span>;
-      <span style="color:black;"><strong>1</strong></span>;
-      <span style="color:black;"><strong>2</strong></span>;
-      <span style="color:black;"><strong>3</strong></span> ...
+      <strong style="color:blue;">-3</strong>;
+      <strong style="color:blue;">-2</strong>;
+      <strong style="color:blue;">-1</strong>;
+      <strong style="color:blue;">0</strong>;
+      <strong style="color:blue;">1</strong>;
+      <strong style="color:blue;">2</strong>;
+      <strong style="color:blue;">3</strong>; ...
     </div>
   </div>
 </section>
@@ -247,24 +246,24 @@
     <div>
       &#8226; L'ensemble des <strong style="color:black;">entiers naturels</strong> noté 
       <strong style="color:black;">$ \mathbb{N} $</strong>, est l'ensemble des entiers positifs ou nuls :
-      <strong style="color:black;">0</strong>; 
-      <strong style="color:black;">1</strong>; 
-      <strong style="color:black;">2</strong>; 
-      <strong style="color:black;">3</strong>; 
-      <strong style="color:black;">4</strong>; ...
+      <strong style="color:blue;">0</strong>; 
+      <strong style="color:blue;">1</strong>; 
+      <strong style="color:blue;">2</strong>; 
+      <strong style="color:blue;">3</strong>; 
+      <strong style="color:blue;">4</strong>; ...
     </div>
   
     <div style="margin-top: 0.4em;">
       &#8226; L'ensemble des <strong style="color:black;">entiers relatifs</strong> noté 
       <strong style="color:black;">$ \mathbb{Z} $</strong>, est l'ensemble des entiers positifs et négatifs :
       ...
-      <span style="color:black;">$-3$</span>;
-      <span style="color:blue;"><span style="color:black;">$-2$</span></span>;
-      <span style="color:blue;"><span style="color:black;">$-1$</span></span>;
-      <span style="color:black;"><strong>0</strong></span>;
-      <span style="color:black;"><strong>1</strong></span>;
-      <span style="color:black;"><strong>2</strong></span>;
-      <span style="color:black;"><strong>3</strong></span> ...
+      <strong style="color:blue;">-3</strong>;
+      <strong style="color:blue;">-2</strong>;
+      <strong style="color:blue;">-1</strong>;
+      <strong style="color:blue;">0</strong>;
+      <strong style="color:blue;">1</strong>;
+      <strong style="color:blue;">2</strong>;
+      <strong style="color:blue;">3</strong>; ...
     </div>
   </div>
 
@@ -338,6 +337,16 @@
 </section>
 
 <section>
+  <div class="prop">
+    Un élément de $\mathbb{D}$ peut toujours s'écrire sous la forme $\large\frac{a}{10^n}$ avec $a\in\mathbb{Z}$ et $n\in\mathbb{N}$.
+  </div>
+  <div class="ex fragment">
+    <span style="margin-right: 4em;">$-3,1=\frac{-31}{10}$</span>
+    <span>$1,26=\frac{126}{100}=\frac{126}{10^2}$</span>
+  </div>
+</section>
+
+<section>
   <div class="def">
     <div class="fragment">
       Un <strong style="color:black;">nombre rationnel</strong> est un nombre qui peut s’écrire 
@@ -401,10 +410,10 @@
   </div>
 
   <div class="fragment">
-    <div style="margin-top: 1em; border: 1px solid red; padding: 0.7em; max-width: 80%; margin-left: auto; margin-right: auto;">
+    <div style="margin-top: 1em; border: 3px solid red; border-radius: 0.2em; padding: 0.7em; max-width: 80%; margin-left: auto; margin-right: auto;">
       <div style="text-align:center;">
         <em><u>Culture mathématique</u></em><br>
-        On soupçonne $ \pi $ d’être un nombre <strong style="color:black;">univers</strong> !
+        On soupçonne $ \pi $ d’être un nombre <strong style="color:yellow;">univers</strong> !
       </div>
     </div>
   </div>
@@ -418,7 +427,7 @@
 
   <div class="prop fragment">
     <div style="text-align:center; margin: 0em 0;">
-      <div data-id="inclusions" style="display:inline-block; border: 2px solid red; padding: 0.6em;">
+      <div data-id="inclusions" style="display:inline-block; border: 3.5px solid red; border-radius: 0.3em; padding: 0.6em;">
         <span>
           $ \mathbb{N} \subset \mathbb{Z} \subset \mathbb{D} \subset \mathbb{Q} \subset \mathbb{R} $
         </span>
@@ -430,7 +439,7 @@
 <section data-auto-animate>
   <div style="font-size: 0.8em;">
     <div style="text-align:center; margin: 0em 0;">
-      <div data-id="inclusions" style="display:inline-block; border: 2px solid red; padding: 0.6em;">
+      <div data-id="inclusions" style="display:inline-block; border: 3.5px solid red; border-radius: 0.3em; padding: 0.6em;">
         <span>
           $ \mathbb{N} \subset \mathbb{Z} \subset \mathbb{D} \subset \mathbb{Q} \subset \mathbb{R} $
         </span>
